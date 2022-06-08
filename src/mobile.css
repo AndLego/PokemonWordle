@@ -1,0 +1,54 @@
+.card-rules {
+  width: 340px;
+  padding: 0 20px;
+  margin: 32px auto;
+  font-size: 1.2rem;
+}
+
+#close-card-Rules {
+  font-size: 3.6rem;
+  right: calc(4%);
+  top: calc(-28%);
+}
+
+.card-length {
+  width: 340px;
+}
+
+main h1 {
+  font-size: 2.2rem;
+  margin: 12px;
+  padding-bottom: 42px;
+}
+
+.main-buttons{
+    display: flex;
+    top: calc(7%);
+    width: 100%;
+    justify-content: space-around;
+}
+
+.reset,
+.level,
+.help {
+  height: initial;
+}
+
+.level{
+    width: 100px;
+}
+
+.row-item{
+    width: 52px;
+    height: 52px;
+}
+
+button{
+    width: 28px;
+    height: 40px;
+}
+
+#ENTER, #DELETE {
+    width: 52px;
+    font-size: 1rem;
+}
