@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://kit.fontawesome.com/290ac6f052.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Pokemon Wordle</title>
+  </head>
+  <body>
+    <section class="card-rules">
+      <div class="card-rules__main-title">
+        <h1>HOW TO PLAY</h1>
+        <span onclick="closeFirst()" id="close-card-Rules">&times</span>
+      </div>
+      <div class="card-rules__content">
+        <p>Guess the <strong>POKEMON</strong> in six tries</p>
+        <p>
+          Each guess must be a valid 5/6/7-letter pokemon. Hit the enter button
+          to submit.
+        </p>
+        <p>
+          After each guess, the color of the tiles will change to show how close
+          you guess was to the pokemon name.
+        </p>
+      </div>
+      <div class="card-rules__content">
+        <h3>Examples</h3>
+        <img src="https://i.postimg.cc/c19YzQrj/success.png" alt="correct" />
+        <p>
+          The letters <strong>A</strong> and <strong>Y</strong> are in the
+          pokemon name and in the correct spot
+        </p>
+
+        <img src="https://i.postimg.cc/FKp1L4Sq/almost.png" alt="wrong spot" />
+        <p>
+          The letter <strong>B</strong> is in the pokemon name but in the wrong
+          spot.
+        </p>
+
+        <img src="https://i.postimg.cc/YqvgBhFS/not.pngt" alt="wrong letter" />
+        <p>There's no letter in any spot.</p>
+      </div>
+
+      <p>Have fun guessing the Pokemon!</p>
+    </section>
+
+    <section class="card-length inactive">
+      <h4 class="title">Choose the name's length</h4>
+      <form onsubmit="setLevels()" class="card-length__form">
+        <div class="poke-length">
+          <select name="poke-length" id="poke-length">
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+          </select>
+        </div>
+
+        <button id="levelBtn" class="btn" type="submit">Play</button>
+      </form>
+    </section>
+
+    <main class="inactive">
+      <div class="main-buttons">
+        <button onclick="reset()" class="main-button reset">
+          <i class="fa-solid fa-tornado"></i>
+        </button>
+        <button onclick="changeLevel()" class="main-button level">
+          Choose Level
+        </button>
+        <button onclick="rules()" class="main-button help">
+          <i class="fa-regular fa-circle-question"></i>
+        </button>
+      </div>
+
+      <h1>Pokemon wordle</h1>
+
+      <section id="grid"></section>
+      <section id="keyboard"></section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

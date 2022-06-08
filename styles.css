@@ -1,0 +1,297 @@
+:root {
+  --black: #131313;
+  --almost-back: #2d251a;
+  --success: #538d4e;
+  --almost: #c9b458;
+  --not: #3a3a3c;
+  --white: #ffffff;
+  --gray: #818384;
+}
+
+* {
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-image: linear-gradient(
+    to right,
+    var(--black) 0%,
+    var(--almost-back) 100%
+  );
+  color: var(--white);
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  width: 44px;
+  height: 52px;
+  border-radius: 10px;
+  background: var(--gray);
+  color: var(--white);
+  margin: 2px;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 0.6;
+}
+
+.main-buttons {
+  display: flex;
+  width: 200px;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 10px;
+}
+
+.main-button {
+  background: transparent;
+}
+
+.help,
+.reset {
+  font-size: 2rem;
+}
+
+main h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--not);
+  font-weight: 800;
+}
+
+#grid {
+  margin: 20px 0;
+}
+
+.grid-row {
+  display: flex;
+  padding: 3px;
+  gap: 5px;
+}
+
+.row-item {
+  border: 1.2px solid var(--not);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+#grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ENTER,
+#DELETE {
+  width: 68px;
+}
+
+.gray {
+  background-color: var(--not);
+  border: none;
+}
+
+.green {
+  background-color: var(--success);
+  border: none;
+}
+
+.yellow {
+  background-color: var(--almost);
+  border: none;
+}
+
+/*TUTORIAL*/
+
+.card-rules {
+  margin-top: 20px;
+  width: 450px;
+  /* background: black; */
+  height: 600px;
+  margin: 60px auto;
+  font-size: 1.4rem;
+}
+
+.card-rules__main-title {
+  position: relative;
+  text-align: center;
+}
+
+.card-rules__main-title h1 {
+  padding-top: 5px;
+}
+
+#close-card-Rules {
+  position: absolute;
+  font-size: 2.8rem;
+  right: calc(2%);
+  top: calc(2%);
+  cursor: pointer;
+}
+
+.card-rules__content {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--not);
+}
+
+.card-rules__main-title span {
+  position: absolute;
+}
+
+.card-rules p {
+  margin-top: 12px;
+}
+
+.card-rules img {
+  width: 260px;
+  margin-top: 16px;
+}
+
+/* DIFFICULT SLEECTOR */
+
+/* From uiverse.io by @alexruix */
+
+.card-length {
+  width: 400px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+
+.card-length__form {
+  display: flex;
+  height: 7rem;
+  width: 60%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/*Text*/
+.title {
+  margin-bottom: 2rem;
+  font-size: 2.4em;
+  font-weight: 500;
+  color: #f5f5f5;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #5c6664;
+  background-image: none;
+  flex: 1;
+  padding: 0 0.5em;
+  color: #fff;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+select::-ms-expand {
+  display: none;
+}
+.poke-length {
+  position: relative;
+  display: flex;
+  width: 7.2rem;
+  height: 3em;
+  line-height: 3;
+  background: #5c6664;
+  overflow: hidden;
+  border-radius: 0.25em;
+}
+.poke-length::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #2b2e2e;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.25s all ease;
+}
+
+.poke-length:hover::after {
+  color: var(--almost);
+}
+
+/*Buttons*/
+#levelBtn {
+  width: auto;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  padding: 0.6em 1.2em;
+  background-color: var(--not);
+  color: var(--white);
+  box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-link {
+  color: #f5f5f5;
+  display: block;
+  font-size: 0.75em;
+  transition: color 0.3s ease-out;
+}
+
+/*Hover & focus*/
+.field input:focus::placeholder {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn:hover {
+  background-color: #5e6681;
+  color: #ffeba7;
+  box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+}
+
+.btn-link:hover {
+  color: #ffeba7;
+}
+
+/*random*/
+
+.inactive {
+  display: none;
+}
