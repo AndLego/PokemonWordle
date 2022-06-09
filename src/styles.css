@@ -66,12 +66,15 @@ button:hover {
   font-size: 2rem;
 }
 
+header{
+  border-bottom: 1px solid var(--not);
+}
+
 main h1 {
   text-align: center;
   font-size: 2.8rem;
   margin: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--not);
   font-weight: 800;
 }
 
@@ -307,7 +310,8 @@ select::-ms-expand {
   );
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translate(-50%, 60%);
   margin-left: auto;
   margin-right: auto;
   display: flex;
