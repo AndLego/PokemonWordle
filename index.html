@@ -53,6 +53,7 @@
       </div>
 
       <p>Have fun guessing the Pokemon!</p>
+
     </section>
 
     <section class="card-length inactive">
@@ -71,10 +72,9 @@
     </section>
 
     <main class="inactive">
-
       <header>
         <h1>Pokemon wordle</h1>
-  
+
         <div class="main-buttons">
           <button onclick="reset()" class="main-button reset">
             <i class="fa-solid fa-tornado"></i>
@@ -94,12 +94,15 @@
 
     <div class="win-card close-PopUp">
       <h2>YOU WIN!</h2>
+      <img class="winImg" src="" alt="" />
+      <span id="winnerAnswer"></span>
       <button class="playAgain" onclick="closeWinPopUp()">
         <i class="fa-solid fa-tornado"></i>Play Again
       </button>
     </div>
     <div class="loose-card close-PopUp">
       <h2>Keep Trying</h2>
+      <img class="loseImg" src="" alt="" />
       <span id="answer"></span>
       <button class="playAgain" onclick="closeLosePopUp()">
         <i class="fa-solid fa-tornado"></i>Try Again

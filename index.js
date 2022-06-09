@@ -24,6 +24,30 @@ const analisePokemon = async () => {
   }
 };
 
+let endGame = false;
+
+const getImage = async () => {
+  let cleanPokemon = secretWord.join("").toLowerCase();
+  const winPokemon = document.querySelector(".winImg");
+  const losePokemon = document.querySelector(".loseImg");
+
+  try {
+    console.log(cleanPokemon);
+    const { data, status } = await api.get(`/pokemon-form/${cleanPokemon}`);
+    const poke = await data.sprites.front_default;
+
+    if (endGame === false) {
+      losePokemon.src = poke;
+    } else {
+      winPokemon.src = poke;
+    }
+
+    console.log(poke);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 //Wordle development
 
 const keyboard = document.querySelector("#keyboard");
@@ -91,6 +115,8 @@ keyboard.append(...listElements);
 
 const windCondition = () => {
   if (myAnswer.join("") === secretWord.join("")) {
+    endGame = true;
+    getImage();
     disableBtn();
     openWinPopUp();
   }
@@ -98,6 +124,8 @@ const windCondition = () => {
 
 const loseCondition = () => {
   if (myAnswer.join("") != secretWord.join("") && attempts === 6) {
+    endGame = false;
+    getImage();
     openLosePopUp();
   }
 };
@@ -108,7 +136,6 @@ const checkWord = () => {
   loseCondition();
 
   if (myAnswer.length === baseLength) {
-
     for (let i = 0; i < baseLength; i++) {
       switch (true) {
         case myAnswer[i] === secretWord[i]:
@@ -136,7 +163,6 @@ const checkWord = () => {
     });
     myAnswer = [];
     positions = [];
-    
   } else {
     alert(`Not enough letters`);
   }
@@ -253,6 +279,7 @@ const changeLevel = () => {
 const card = document.querySelector(".win-card");
 const loseCard = document.querySelector(".loose-card");
 const answerSpan = document.getElementById("answer");
+const winSpan = document.getElementById("winnerAnswer");
 
 const closeWinPopUp = () => {
   card.classList.add("close-PopUp");
@@ -267,6 +294,10 @@ const closeLosePopUp = () => {
 const openWinPopUp = () => {
   card.classList.remove("close-PopUp");
   card.classList.add("open-PopUp");
+  winSpan.textContent = `${secretWord[0]}${secretWord
+    .slice(1)
+    .join("")
+    .toLowerCase()}`;
 };
 
 let newAnswer = secretWord.join("");
