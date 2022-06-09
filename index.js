@@ -24,16 +24,28 @@ const analisePokemon = async () => {
   }
 };
 
+const getID = async() => {
+  let cleanPokemon = secretWord.join("").toLowerCase();
+  try {
+    const { data, status } = await api.get(`/pokemon/${cleanPokemon}`);
+    const setId = data.id
+    pokeId = setId
+
+
+  }catch (err) {
+    console.error(err);
+  }
+}
+
 let endGame = false;
+let pokeId;
 
 const getImage = async () => {
-  let cleanPokemon = secretWord.join("").toLowerCase();
   const winPokemon = document.querySelector(".winImg");
   const losePokemon = document.querySelector(".loseImg");
 
   try {
-    console.log(cleanPokemon);
-    const { data, status } = await api.get(`/pokemon-form/${cleanPokemon}`);
+    const { data, status } = await api.get(`/pokemon-form/${pokeId}`);
     const poke = await data.sprites.front_default;
 
     if (endGame === false) {
@@ -42,7 +54,6 @@ const getImage = async () => {
       winPokemon.src = poke;
     }
 
-    console.log(poke);
   } catch (err) {
     console.error(err);
   }
@@ -67,6 +78,7 @@ let rows = [];
 const createSecretWord = (pokemons) => {
   let random = Math.floor(Math.random() * pokemons.length);
   secretWord = pokemons[random].toUpperCase().split("");
+  getID()
 };
 
 const createGrid = () => {
