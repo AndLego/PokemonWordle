@@ -32,9 +32,7 @@
           After each guess, the color of the tiles will change to show how close
           you guess was to the pokemon name.
         </p>
-        <p>
-          All gen pokemons are allowed.
-        </p>
+        <p>All gen pokemons are allowed.</p>
       </div>
       <div class="card-rules__content">
         <h3>Examples</h3>
@@ -90,6 +88,20 @@
       <section id="grid"></section>
       <section id="keyboard"></section>
     </main>
+
+    <div class="win-card close-PopUp">
+      <h2>YOU WIN!</h2>
+      <button class="playAgain" onclick="closeWinPopUp()">
+        <i class="fa-solid fa-tornado"></i>Play Again
+      </button>
+    </div>
+    <div class="loose-card close-PopUp">
+      <h2>Keep Trying</h2>
+      <span id="answer"></span>
+      <button class="playAgain" onclick="closeLosePopUp()">
+        <i class="fa-solid fa-tornado"></i>Try Again
+      </button>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./index.js"></script>

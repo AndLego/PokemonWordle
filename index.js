@@ -89,14 +89,16 @@ keyboardLetters.map((letters) => {
 
 keyboard.append(...listElements);
 
+const loseCondition = () => {
+  if (attempts === 6) {
+    openLosePopUp();
+  }
+};
+
 const checkWord = () => {
   if (myAnswer.join("") === secretWord.join("")) {
     disableBtn();
-    console.log("you win");
-  }
-  if (attempts === 5) {
-    alert("you got 0 attempts");
-    return;
+    openWinPopUp();
   }
   if (myAnswer.length === baseLength) {
     attempts += 1;
@@ -125,10 +127,10 @@ const checkWord = () => {
     positions.map((color, id) => {
       const item = document.getElementById(`${attempts - 1}-${id}`);
       item.classList.add(color);
-
     });
     myAnswer = [];
     positions = [];
+    loseCondition();
   } else {
     alert(`hey! your answer only have ${myAnswer.length} letters`);
   }
@@ -239,4 +241,32 @@ const changeLevel = () => {
 
   main.classList.add("inactive");
   openCardLength.classList.remove("inactive");
+};
+
+/*POP- UPS------------------------------------------------------------------*/
+const card = document.querySelector(".win-card");
+const loseCard = document.querySelector(".loose-card");
+const answerSpan = document.getElementById("answer")
+
+const closeWinPopUp = () => {
+  card.classList.add("close-PopUp");
+  reset();
+};
+
+const closeLosePopUp = () => {
+  loseCard.classList.add("close-PopUp");
+  reset();
+};
+
+const openWinPopUp = () => {
+  card.classList.remove("close-PopUp");
+  card.classList.add("open-PopUp");
+};
+
+let newAnswer = secretWord.join("")
+
+const openLosePopUp = () => {
+  loseCard.classList.remove("close-PopUp");
+  loseCard.classList.add("open-PopUp");
+  answerSpan.textContent = `The answer was ${secretWord[0]}${secretWord.slice(1).join("").toLowerCase()}`
 };

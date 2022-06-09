@@ -87,8 +87,8 @@ main h1 {
 
 .row-item {
   border: 1.2px solid var(--not);
-  width: 60px;
-  height: 60px;
+  width: 52px;
+  height: 52px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -292,4 +292,97 @@ select::-ms-expand {
 
 .inactive {
   display: none;
+}
+
+/* LOOSE/WIN CARDS */
+
+/* From uiverse.io by @bhaveshxrawat */
+.win-card, .loose-card {
+  width: 190px;
+  height: 254px;
+  background-image: linear-gradient(
+    to right,
+    var(--black) 0%,
+    var(--almost-back) 100%
+  );
+  position: absolute;
+  top: calc(22%);
+  left: calc(31%);
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  color: white;
+}
+
+.win-card h2 {
+  z-index: 1;
+  font-size: 3rem;
+  color: var(--success);
+}
+
+.loose-card h2{
+  z-index: 1;
+  font-size: 2.6rem;
+  color: #b59f3b
+}
+
+.playAgain {
+  z-index: 1;
+  width: 108px;
+  background: var(--success);
+}
+
+.loose-card .playAgain{
+  background: #b59f3b;
+}
+
+.playAgain i {
+  margin-right: 8px;
+}
+
+.win-card::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  background-image: linear-gradient(180deg, var(--success), var(--success));
+  height: 130%;
+  animation: rotBGimg 3s linear infinite;
+  transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.win-card::after {
+  content: "";
+  position: absolute;
+  background-image: linear-gradient(
+    to right,
+    var(--black) 0%,
+    var(--almost-back) 100%
+  );
+  inset: 5px;
+  border-radius: 15px;
+}
+
+#answer{
+  font-size: 1.6rem;
+}
+
+.open-PopUp {
+  visibility: visible;
+}
+
+.close-PopUp {
+  visibility: hidden;
 }
