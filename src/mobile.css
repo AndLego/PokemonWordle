@@ -18,19 +18,21 @@
 header{
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 main h1 {
   font-size: 2.2rem;
   margin: 12px;
-  padding-bottom: 42px;
+  padding-bottom: initial;
 }
 
 .main-buttons{
     display: flex;
-    top: calc(7%);
+    position: initial;
     width: 100%;
     justify-content: space-around;
+    padding-bottom: 6px;
 }
 
 .reset,

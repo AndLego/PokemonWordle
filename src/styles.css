@@ -74,7 +74,6 @@ main h1 {
   text-align: center;
   font-size: 2.8rem;
   margin: 20px;
-  padding-bottom: 20px;
   font-weight: 800;
 }
 
@@ -349,7 +348,7 @@ select::-ms-expand {
   margin-right: 8px;
 }
 
-.win-card::before {
+.win-card::before, .loose-card::before {
   content: "";
   position: absolute;
   width: 100px;
@@ -357,6 +356,10 @@ select::-ms-expand {
   height: 130%;
   animation: rotBGimg 3s linear infinite;
   transition: all 0.2s linear;
+}
+
+.loose-card::before{
+  background-image: linear-gradient(180deg, var(--almost), var(--almost));
 }
 
 @keyframes rotBGimg {
@@ -369,7 +372,7 @@ select::-ms-expand {
   }
 }
 
-.win-card::after {
+.win-card::after, .loose-card::after {
   content: "";
   position: absolute;
   background-image: linear-gradient(
@@ -383,6 +386,7 @@ select::-ms-expand {
 
 #answer{
   font-size: 1.6rem;
+  z-index: 1;
 }
 
 .open-PopUp {

@@ -89,19 +89,25 @@ keyboardLetters.map((letters) => {
 
 keyboard.append(...listElements);
 
+const windCondition = () => {
+  if (myAnswer.join("") === secretWord.join("")) {
+    disableBtn();
+    openWinPopUp();
+  }
+};
+
 const loseCondition = () => {
-  if (attempts === 6) {
+  if (myAnswer.join("") != secretWord.join("") && attempts === 6) {
     openLosePopUp();
   }
 };
 
 const checkWord = () => {
-  if (myAnswer.join("") === secretWord.join("")) {
-    disableBtn();
-    openWinPopUp();
-  }
+  windCondition();
+  attempts += 1;
+  loseCondition();
+
   if (myAnswer.length === baseLength) {
-    attempts += 1;
 
     for (let i = 0; i < baseLength; i++) {
       switch (true) {
@@ -130,9 +136,9 @@ const checkWord = () => {
     });
     myAnswer = [];
     positions = [];
-    loseCondition();
+    
   } else {
-    alert(`hey! your answer only have ${myAnswer.length} letters`);
+    alert(`Not enough letters`);
   }
 };
 
@@ -154,7 +160,7 @@ const pressLetter = () => {
     currentItem.textContent = button.textContent;
     myAnswer.push(button.id);
   } else {
-    alert("your word is complete");
+    alert("Click Enter");
   }
 };
 
@@ -246,7 +252,7 @@ const changeLevel = () => {
 /*POP- UPS------------------------------------------------------------------*/
 const card = document.querySelector(".win-card");
 const loseCard = document.querySelector(".loose-card");
-const answerSpan = document.getElementById("answer")
+const answerSpan = document.getElementById("answer");
 
 const closeWinPopUp = () => {
   card.classList.add("close-PopUp");
@@ -263,10 +269,13 @@ const openWinPopUp = () => {
   card.classList.add("open-PopUp");
 };
 
-let newAnswer = secretWord.join("")
+let newAnswer = secretWord.join("");
 
 const openLosePopUp = () => {
   loseCard.classList.remove("close-PopUp");
   loseCard.classList.add("open-PopUp");
-  answerSpan.textContent = `The answer was ${secretWord[0]}${secretWord.slice(1).join("").toLowerCase()}`
+  answerSpan.textContent = `The answer was ${secretWord[0]}${secretWord
+    .slice(1)
+    .join("")
+    .toLowerCase()}`;
 };
